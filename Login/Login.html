@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Pagina</title>
+
+  <!-- Fonts importeren -->
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Horizon&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../CSS/Login.css" />
+
+</head>
+<body>
+  <img id="wijzer" src="../Foto/SkillRader_Logo.png" alt="Wijzer" />
+
+    <div class="nav">
+    <h1>The SkillRader</h1>
+    <button onclick="window.location.href='../Login/Login.html'">Inloggen</button>
+  </div>
+
+  <div class="login-container">
+    <h2 id="form-title">Inloggen</h2>
+    <div id="message"></div>
+
+    <!-- Inloggen -->
+    <div id="login-form">
+      <input type="text" id="login-username" placeholder="Gebruikersnaam of email" />
+      <input type="password" id="login-password" placeholder="Wachtwoord" />
+      <button onclick="login()">Login</button>
+      <span class="toggle-link" onclick="toggleForm()">Nog geen account? Maak er een aan</span>
+    </div>
+
+    <!-- Registratie -->
+    <div id="register-form" style="display: none;">
+      <input type="text" id="register-username" placeholder="Gebruikersnaam" />
+      <input type="email" id="register-email" placeholder="Email" />
+      <input type="password" id="register-password" placeholder="Wachtwoord" />
+      <button onclick="register()">Account aanmaken</button>
+      <span class="toggle-link" onclick="toggleForm()">Heb je al een account? Log dan in</span>
+    </div>
+  </div>
+
+<script>
+  const users = [
+    { username: "admin", password: "wachtwoord", email: "admin@example.com" }
+  ];
+
+  function toggleForm() {
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+    const message = document.getElementById("message");
+
+    message.textContent = "";
+    message.className = "";
+
+    if (loginForm.style.display === "none") {
+      loginForm.style.display = "block";
+      registerForm.style.display = "none";
+      document.getElementById("form-title").textContent = "Inloggen";
+    } else {
+      loginForm.style.display = "none";
+      registerForm.style.display = "block";
+      document.getElementById("form-title").textContent = "Account aanmaken";
+    }
+  }
+
+  function login() {
+    const username = document.getElementById("login-username").value.trim();
+    const password = document.getElementById("login-password").value.trim();
+    const message = document.getElementById("message");
+
+    const user = users.find(
+      (u) => (u.username === username || u.email === username) && u.password === password
+    );
+
+    if (user) {
+      message.innerHTML = `<span class="success"><img src="check.png" alt="✔"> Succesvol ingelogd!</span>`;
+      setTimeout(() => {
+        window.location.href = "homepage.html";
+      }, 1500);
+    } else {
+      message.textContent = "❌ Onjuiste gebruikersnaam, e-mailadres of wachtwoord.";
+      message.className = "error";
+    }
+  }
+
+  function register() {
+    const username = document.getElementById("register-username").value.trim();
+    const email = document.getElementById("register-email").value.trim();
+    const password = document.getElementById("register-password").value.trim();
+    const message = document.getElementById("message");
+
+    if (!username || !email || !password) {
+      message.textContent = "Vul alle velden in.";
+      message.className = "error";
+      return;
+    }
+
+    if (users.find((u) => u.username === username)) {
+      message.textContent = "❌ Gebruikersnaam bestaat al.";
+      message.className = "error";
+      return;
+    }
+
+    users.push({ username, email, password });
+    message.innerHTML = `<span class="success">✅ Account succesvol aangemaakt!</span>`;
+
+    setTimeout(() => {
+      window.location.href = "homepage.html";
+    }, 2000);
+  }
+</script>
+
+</body>
+</html>

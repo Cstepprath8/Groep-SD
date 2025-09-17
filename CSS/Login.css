@@ -1,0 +1,141 @@
+    body {
+      font-family: 'ADLaM Display', cursive; /* standaard tekst = ADLaM Display */
+      background: url("../Foto/groene\ achtergrond.png") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #wijzer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-46%, -46%);
+      width: 150vw;
+      max-width: 10000px;
+      height: auto;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+        .nav {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      color: white;
+      z-index: 10;
+    }
+
+    .nav h1 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .nav button {
+      border: 1px solid white;
+      background: transparent;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav button:hover {
+      background: white;
+      color: teal;
+    }
+
+    .login-container {
+      position: relative;
+      z-index: 1;
+      background: rgb(255, 255, 255);
+      backdrop-filter: blur(6px);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      width: 340px;
+      text-align: center;
+      color: #333;
+    }
+
+    /* Headers in Horizon */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Horizon', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    /* Paragraph en standaard tekst = ADLaM Display */
+    p, span, div, input, button {
+      font-family: 'ADLaM Display', cursive;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .toggle-link {
+      margin-top: 1rem;
+      color: #007bff;
+      cursor: pointer;
+      text-decoration: underline;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .toggle-link:hover {
+      color: #0056b3;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 1rem;
+    }
+
+    .success {
+      color: green;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .success img {
+      width: 20px;
+      height: 20px;
+    }

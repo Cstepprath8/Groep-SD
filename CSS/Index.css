@@ -1,0 +1,138 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* Achtergrond */
+    .background {
+      position: absolute;
+      inset: 0;
+      background: url("../Foto/groene\ achtergrond.png") no-repeat center center/cover;
+      filter: brightness(70%);
+      z-index: -2;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Navigatie */
+    .nav {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      color: white;
+      z-index: 10;
+    }
+
+    .nav h1 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .nav button {
+      border: 1px solid white;
+      background: transparent;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav button:hover {
+      background: white;
+      color: teal;
+    }
+
+    /* Socials rechts */
+    .socials {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 2;
+    }
+
+    .socials a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      color: cyan;
+    }
+
+    /* Content links */
+    .content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start; /* links */
+      padding-left: 80px;
+      color: white;
+      z-index: 2;
+    }
+
+    .content p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .content h2 {
+      font-size: 60px;
+      font-weight: bold;
+      line-height: 1.1;
+    }
+
+    .content button {
+      margin-top: 20px;
+      border: 1px solid white;
+      background: transparent;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .content button:hover {
+      background: white;
+      color: teal;
+    }
+
+    /* Afbeelding in het midden groter */
+    .center-image {
+      position: absolute;
+      top: 50%;
+      left: 51%;
+      transform: translate(-50%, -50%);
+      max-width: 700px;   /* groter gemaakt */
+      width: 100%;
+      z-index: 1;
+      opacity: 0.9;
+    }
