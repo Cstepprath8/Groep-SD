@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stap 1 & 2: Labels en Waarden</title>
+  <link rel="stylesheet" href="labels-style.css" />
+</head>
+<body>
+  <h1>Stap 1 & 2: Vul je labels en waardes in</h1>
+
+  <!-- Labels -->
+  <h2>Labels</h2>
+  <div class="controls" id="labelsContainer">
+    <label><span>Label 1</span><input type="text" id="label1" value="Slecht"></label>
+    <label><span>Label 2</span><input type="text" id="label2" value="Neutraal"></label>
+    <label><span>Label 3</span><input type="text" id="label3" value="Goed"></label>
+    <label><span>Label 4</span><input type="text" id="label4" value="Zeer goed"></label>
+  </div>
+
+  <!-- Waarden -->
+  <h2>Waarden (1–10)</h2>
+  <div class="controls" id="valuesContainer">
+    <label><span>Waarde 1</span><input type="number" id="val1" min="1" max="10" value="5"></label>
+    <label><span>Waarde 2</span><input type="number" id="val2" min="1" max="10" value="5"></label>
+    <label><span>Waarde 3</span><input type="number" id="val3" min="1" max="10" value="5"></label>
+    <label><span>Waarde 4</span><input type="number" id="val4" min="1" max="10" value="5"></label>
+  </div>
+
+  <button onclick="saveData()">Opslaan & Diagram →</button>
+  <p><a href="diagram.html">Diagram bekijken zonder opslaan</a></p>
+
+  <script>
+    function saveData() {
+      // Labels ophalen
+      const labels = [
+        document.getElementById('label1').value || 'Label 1',
+        document.getElementById('label2').value || 'Label 2',
+        document.getElementById('label3').value || 'Label 3',
+        document.getElementById('label4').value || 'Label 4'
+      ];
+
+      // Waarden ophalen
+      const values = [
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val1').value))),
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val2').value))),
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val3').value))),
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val4').value)))
+      ];
+
+      // Opslaan in localStorage
+      localStorage.setItem('labels', JSON.stringify(labels));
+      localStorage.setItem('values', JSON.stringify(values));
+
+      // Doorsturen naar diagram
+      window.location.href = 'diagram.html';
+    }
+  </script>
+</body>
+</html>
