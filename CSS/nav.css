@@ -51,6 +51,11 @@
 }
 
 /* //fonts */
-h1, h2, h3, h4, h5, h6  {
-  font-family: 'ADLaM Display', sans-serif  !important;
+    h1, h2, h3, h4, h5, h6  {
+    font-family: 'Archivo Black', sans-serif  !important;
 }
+
+/* Paragraph en standaard tekst = ADLaM Display */
+    p, span, div, input, button {
+      font-family: 'ADLaM Display', cursive;
+    }

@@ -47,16 +47,6 @@
 
     }
 
-    /* Headers in Horizon */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Horizon', sans-serif;
-      margin-bottom: 1rem;
-    }
-
-    /* Paragraph en standaard tekst = ADLaM Display */
-    p, span, div, input, button {
-      font-family: 'ADLaM Display', cursive;
-    }
 
     input[type="text"],
     input[type="password"],
