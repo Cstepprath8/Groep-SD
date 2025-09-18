@@ -1,0 +1,56 @@
+/* nav.css */
+
+/* Reset en basis */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navigatie */
+.nav {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  color: white;
+  z-index: 10;
+}
+
+.nav h1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav button {
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav button:hover {
+  background: white;
+  color: teal;
+}
+
+.title-link {
+  display: inline-block;      /* hele blok klikbaar */
+  text-decoration: none;      /* verwijdert onderlijning */
+  color: white;               /* maakt de tekst wit */
+  padding: 0.5rem 1rem; 
+  left: 5%;      /* optioneel: klikbare ruimte */
+}
+
+/* //fonts */
+h1, h2, h3, h4, h5, h6  {
+  font-family: 'ADLaM Display', sans-serif  !important;
+}

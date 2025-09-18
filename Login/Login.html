@@ -8,14 +8,17 @@
   <!-- Fonts importeren -->
   <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Horizon&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../CSS/Login.css" />
+  <link rel="stylesheet" href="../CSS/nav.css" />
 
 </head>
 <body>
   <img id="wijzer" src="../Foto/SkillRader_Logo.png" alt="Wijzer" />
 
     <div class="nav">
-    <h1>The SkillRader</h1>
-    <button onclick="window.location.href='../Login/Login.html'">Inloggen</button>
+     <a href="../Homepagina/index.html" class="title-link">
+      <h1>The SkillRader</h1>
+     </a>
+    <button onclick="window.location.href='../Homepagina/index.html'">⭠ Terug</button>
   </div>
 
   <div class="login-container">
@@ -74,7 +77,7 @@
     );
 
     if (user) {
-      message.innerHTML = `<span class="success"><img src="check.png" alt="✔"> Succesvol ingelogd!</span>`;
+      message.innerHTML = `✅ Succesvol ingelogd!</span>`;
       setTimeout(() => {
         window.location.href = "homepage.html";
       }, 1500);
