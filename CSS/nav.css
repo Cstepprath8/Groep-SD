@@ -42,12 +42,23 @@
   color: teal;
 }
 
+.logo {
+  width: 40px;       /* pas grootte aan naar wens */
+  height: auto;
+  margin-right: 10px; /* ruimte tussen logo en tekst */
+}
+
 .title-link {
-  display: inline-block;      /* hele blok klikbaar */
-  text-decoration: none;      /* verwijdert onderlijning */
-  color: white;               /* maakt de tekst wit */
-  padding: 0.5rem 1rem; 
-  left: 5%;      /* optioneel: klikbare ruimte */
+  display: flex;        /* logo + tekst naast elkaar */
+  align-items: center;  /* verticaal uitlijnen */
+  text-decoration: none; 
+  color: white;
+}
+
+.title-link img {
+  width: 80px;          /* pas grootte logo aan */
+  height: auto;
+  margin-right: -10px;   /* ruimte tussen logo en tekst */
 }
 
 /* //fonts */
