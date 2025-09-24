@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aanpasbare Roosdiagram (1–10)</title>
+  <link rel="stylesheet" href="../CSS/roos.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Aanpasbare Roosdiagram</h1>
+
+  <div class="controls">
+    <label><span>Label 1</span><input type="text" id="label1" value="Slecht"></label>
+    <label><span>Label 2</span><input type="text" id="label2" value="Neutraal"></label>
+    <label><span>Label 3</span><input type="text" id="label3" value="Goed"></label>
+    <label><span>Label 4</span><input type="text" id="label4" value="Zeer goed"></label>
+
+    <label><span>Waarde 1</span><input type="number" id="val1" min="1" max="10" value="2"></label>
+    <label><span>Waarde 2</span><input type="number" id="val2" min="1" max="10" value="5"></label>
+    <label><span>Waarde 3</span><input type="number" id="val3" min="1" max="10" value="7"></label>
+    <label><span>Waarde 4</span><input type="number" id="val4" min="1" max="10" value="9"></label>
+  </div>
+
+  <button onclick="updateChart()">Update Roos</button>
+  <canvas id="roosChart"></canvas>
+
+  <script>
+    const ctx = document.getElementById('roosChart').getContext('2d');
+
+    let roosChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Slecht', 'Neutraal', 'Goed', 'Zeer goed'],
+        datasets: [{
+          label: 'Beoordeling',
+          data: [2, 5, 7, 9],
+          fill: true,
+          backgroundColor: 'rgba(78, 115, 223, 0.2)',
+          borderColor: 'rgba(78, 115, 223, 1)',
+          pointBackgroundColor: 'rgba(78, 115, 223, 1)',
+          pointBorderColor: '#fff',
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          r: {
+            min: 1,
+            max: 10,
+            ticks: { stepSize: 1 },
+            pointLabels: { font: { size: 14 } }
+          }
+        }
+      }
+    });
+
+    function updateChart() {
+      const labels = [
+        document.getElementById('label1').value || 'Label 1',
+        document.getElementById('label2').value || 'Label 2',
+        document.getElementById('label3').value || 'Label 3',
+        document.getElementById('label4').value || 'Label 4'
+      ];
+
+      const values = [
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val1').value))),
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val2').value))),
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val3').value))),
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val4').value)))
+      ];
+
+      roosChart.data.labels = labels;
+      roosChart.data.datasets[0].data = values;
+      roosChart.update();
+    }
+  </script>
+</body>
+</html>
