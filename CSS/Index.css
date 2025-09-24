@@ -28,7 +28,25 @@
       z-index: -1;
     }
 
+  .triangle-pattern {
+  display: grid;
+  grid-template-columns: repeat(3, 60px); /* 3 kolommen */
+  grid-auto-rows: 60px; 
+  gap: 10px; /* ruimte tussen de driehoeken */
+}
 
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 60px solid black; /* kleur van de driehoek */
+}
+
+.triangle.down {
+  border-bottom: none;
+  border-top: 60px solid black;
+}
 
     /* Socials rechts */
     .socials {

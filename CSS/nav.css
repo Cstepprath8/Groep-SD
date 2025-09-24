@@ -70,3 +70,17 @@
     p, span, div, input, button {
       font-family: 'ADLaM Display', cursive;
     }
+
+.footer-image {
+  position: absolute;
+  bottom: 0;     /* onderaan */
+  right: 0;      /* helemaal rechts */
+  padding: 10px;
+  background-color: transparent;
+}
+
+.footer-image img {
+  width: 275px;  /* grootte aanpassen */
+  height: auto;
+}
+
