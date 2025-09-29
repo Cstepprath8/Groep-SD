@@ -75,6 +75,7 @@ if(isset($_POST['action']) && $_POST['action'] === 'login') {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login Pagina</title>
+  <link rel="icon" type="image/x-icon" href="../Foto/Flavicon Skillradar 32x32.png">
 
   <!-- Fonts importeren -->
   <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Horizon&display=swap" rel="stylesheet" />
@@ -89,7 +90,7 @@ if(isset($_POST['action']) && $_POST['action'] === 'login') {
     <div class="nav">
      <a href="../Homepagina/index.html" class="title-link">
       <img src="../Foto/SkillRader_Logo.png" alt="Logo" class="logo">
-      <h1>The SkillRader</h1>
+      <h1>The SkillRadar</h1>
      </a>
     <button onclick="window.location.href='../Homepagina/index.html'">⭠ Terug</button>
   </div>

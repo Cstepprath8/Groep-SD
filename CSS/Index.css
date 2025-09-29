@@ -5,11 +5,12 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    body, html {
+    body,
+    html {
       height: 100%;
       width: 100%;
       overflow: hidden;
-      
+
     }
 
     /* Achtergrond */
@@ -21,32 +22,49 @@
       z-index: -2;
     }
 
+    /* Sidebar basis */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgb(0, 0, 0);
+      overflow-x: hidden;
+      transition: 0.4s;
+      padding-top: 60px;
+      color: white;
+      z-index: 500;
+    }
+
+    /* Tekst in sidebar */
+    .sidebar h2,
+    .sidebar p,
+    .sidebar li {
+      padding: 10px 40px;
+    }
+
+    /* Sluit-knop */
+    .sidebar .closebtn {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 40px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .sidebar .closebtn:hover {
+      color: #f00;
+    }
+
+
     .overlay {
       position: absolute;
       inset: 0;
       object-fit: cover;
       z-index: -1;
     }
-
-  .triangle-pattern {
-  display: grid;
-  grid-template-columns: repeat(3, 60px); /* 3 kolommen */
-  grid-auto-rows: 60px; 
-  gap: 10px; /* ruimte tussen de driehoeken */
-}
-
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-bottom: 60px solid black; /* kleur van de driehoek */
-}
-
-.triangle.down {
-  border-bottom: none;
-  border-top: 60px solid black;
-}
 
     /* Socials rechts */
     .socials {
@@ -78,7 +96,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start; /* links */
+      align-items: flex-start;
+      /* links */
       padding-left: 80px;
       color: white;
       z-index: 2;
@@ -118,7 +137,8 @@
       top: 50%;
       left: 51%;
       transform: translate(-50%, -50%);
-      max-width: 700px;   /* groter gemaakt */
+      max-width: 700px;
+      /* groter gemaakt */
       width: 100%;
       z-index: 1;
       opacity: 0.9;

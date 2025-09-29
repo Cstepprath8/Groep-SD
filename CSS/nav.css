@@ -67,7 +67,7 @@
 }
 
 /* Paragraph en standaard tekst = ADLaM Display */
-    p, span, div, input, button {
+    p, span, div, input, button, li {
       font-family: 'ADLaM Display', cursive;
     }
 

@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The SkillRader</title>
+  <title>The SkillRadar</title>
+  <link rel="icon" type="image/x-icon" href="../Foto/Flavicon Skillradar 32x32.png">
 
   <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Horizon&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Archivo+Black&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Archivo+Black&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../CSS/Index.css" />
   <link rel="stylesheet" href="../CSS/nav.css" />
 
@@ -15,16 +17,13 @@
 
 <body>
   <div class="background"></div>
-  <video autoplay loop muted class="overlay">
-    <source src="/foto/vecteezy_glowing-and-shining-particles-dust-forming-a-circular-frame_2461039.mp4"
-      type="video/mp4">
-  </video>
+
 
   <!-- Navigatie -->
   <div class="nav">
     <a href="index.html" class="title-link">
       <img src="../Foto/SkillRader_Logo.png" alt="Logo" class="logo">
-      <h1>The SkillRader</h1>
+      <h1>The SkillRadar</h1>
     </a>
     <button onclick="window.location.href='../Login/Login.php'">Inloggen</button>
   </div>
@@ -48,25 +47,54 @@
   <div class="content">
     <p>Welkom Bij</p>
     <h2>The <br> Skillradar</h2>
-    <button>Informatie</button>
+    <button id="infoBtn">Informatie</button>
   </div>
 
-  <!-- <div class="triangle-pattern">
-  <div class="triangle"></div>
-  <div class="triangle"></div>
-  <div class="triangle"></div>
-  <div class="triangle"></div>
-  <div class="triangle"></div>
-  <div class="triangle"></div>
-  <div class="triangle"></div>
-  <div class="triangle"></div>
-  <div class="triangle"></div>
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" id="closeBtn">&times;</a>
+    <h2>Informatie:</h2>
+    <p>
+      The SkillRadar is een tool waarmee studenten en docenten eenvoudig
+      raders kunnen aanmaken en invullen. Studenten kunnen zelf bepalen
+      of ze hun antwoorden anoniem willen delen of niet.
+      Docenten krijgen inzicht in de resultaten en kunnen zo beter
+      inspelen op de behoeften van de groep.
+    </p>
 
-</div> -->
+    <h2>Hoe werkt het?</h2>
+    <ul>
+      <li>📌 Studenten en docenten kunnen raders aanmaken.</li>
+      <li>📝 Studenten vullen de raders in, anoniem of met naam.</li>
+      <li>📊 Docenten krijgen overzichtelijke resultaten te zien.</li>
+    </ul>
+  </div>
+
 
   <div class="footer-image">
     <img src="../Foto/GildeDevOps.png" alt="Footer Logo">
   </div>
+
+
+  <script>
+    // Haal elementen op
+    const infoBtn = document.getElementById("infoBtn");
+    const sidebar = document.getElementById("sidebar");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // Openen
+    infoBtn.addEventListener("click", () => {
+      sidebar.style.width = "450px";
+    });
+
+    // Sluiten
+    closeBtn.addEventListener("click", () => {
+      sidebar.style.width = "0";
+    });
+
+
+
+  </script>
+
 
 </body>
 
