@@ -1,0 +1,99 @@
+/* Algemene styling */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark {
+  background: #1e1e1e;
+  color: #f5f5f5;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #4f46e5;
+  color: white;
+}
+
+.header .theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.header .theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Dashboard layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+
+.dark .card {
+  background: #2c2c2c;
+}
+
+/* Titel en cijfers */
+.card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+/* Lijn-balk */
+.line {
+  background: #ddd;
+  border-radius: 10px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.dark .line {
+  background: #444;
+}
+
+.nav {
+color: #4f46e5;
+background-color: #6366f1;
+border-radius: 25px;
+width: 99%;
+left: 1%;
+right: 1%;
+}
+
+

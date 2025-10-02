@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The SkillRadar Dashboard</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Archivo+Black&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/CSS/Index.css" />
+  <link rel="stylesheet" href="/CSS/nav.css" />
+  <link rel="stylesheet" href="/CSS/DASHBOARD.css" />
+  <link rel="stylesheet" href="/CSS/lichtknop.css" />
+</head>
+<body>
+  
+  <!-- Navigatie + logo -->
+  <div class="nav">
+    <a href="index.html" class="title-link">
+      <img src="../Foto/SkillRader_Logo.png" alt="Logo" class="logo">
+      <h1>The SkillRader</h1>
+    </a>
+  </div>
+
+  <!-- Ronde header -->
+  <header class="header-round">
+    <div class="welcome">
+      <h2>Welkom, <span id="username">Gebruiker</span></h2>
+      <p>Hier is je overzicht van de skillradar</p>
+    </div>
+  </header>
+
+  <!-- Custom Dark/Light Mode Switch -->
+  <label class="switch" for="switch">
+    <input type="checkbox" id="switch" />
+    <div class="sunmoon">
+      <div class="darkside"></div>
+    </div>
+    <div class="border"></div>
+    <div class="clouds">
+      <img src="/Foto/cloud_1.svg" alt="" class="cloud cloud-1" />
+      <img src="/Foto/cloud_2.svg" alt="" class="cloud cloud-2" />
+      <img src="/Foto/cloud_3.svg" alt="" class="cloud cloud-3" />
+      <img src="/Foto/cloud_4.svg" alt="" class="cloud cloud-4" />
+      <img src="/Foto/stars.svg" alt="" class="stars" />
+    </div>
+  </label>
+
+  <!-- Dashboard cards -->
+  <main class="dashboard">
+    <div class="card">
+      <h3>Totaal aantal mensen in de klas</h3>
+      <p id="total-students">32</p>
+      <div class="line"><div class="fill" style="width: 80%;"></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Mensen met een radar roos</h3>
+      <p id="radar-count">20</p>
+      <div class="line"><div class="fill" style="width: 50%;"></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Scrum Masters</h3>
+      <p id="scrum-count">5</p>
+      <div class="line"><div class="fill" style="width: 15%;"></div></div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
+    const body = document.body;
+
+    toggleSwitch.addEventListener("change", (e) => {
+      body.classList.toggle("dark");
+    });
+
+    // Dynamische naam
+    document.getElementById("username").textContent = "Johan"; 
+  </script>
+</body>
+</html>
