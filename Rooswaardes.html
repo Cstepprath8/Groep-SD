@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waarden</title>
+  <link rel="stylesheet" href="../CSS/roos.css">
+</head>
+<body>
+  <h1>Waarden aanpassen</h1>
+
+  <div class="controls">
+    <label><span>Waarde 1</span><input type="number" id="val1" min="1" max="10" value="2"></label>
+    <label><span>Waarde 2</span><input type="number" id="val2" min="1" max="10" value="5"></label>
+    <label><span>Waarde 3</span><input type="number" id="val3" min="1" max="10" value="7"></label>
+    <label><span>Waarde 4</span><input type="number" id="val4" min="1" max="10" value="9"></label>
+  </div>
+
+  <button onclick="nextStep()">Volgende</button>
+
+  <script>
+    function nextStep() {
+      const values = [
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val1').value))),
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val2').value))),
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val3').value))),
+        Math.min(10, Math.max(1, parseFloat(document.getElementById('val4').value)))
+      ];
+
+      // Sla de waarden op
+      sessionStorage.setItem('values', JSON.stringify(values));
+
+      // Ga naar de pagina met de complete radarroos
+      window.location.href = '../Rader/Roos.html';
+    }
+  </script>
+</body>
+</html>
