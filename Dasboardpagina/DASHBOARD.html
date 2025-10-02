@@ -9,10 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Archivo+Black&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="/CSS/Index.css" />
-  <link rel="stylesheet" href="/CSS/nav.css" />
-  <link rel="stylesheet" href="/CSS/DASHBOARD.css" />
-  <link rel="stylesheet" href="/CSS/lichtknop.css" />
+  <link rel="stylesheet" href="/CSS/dashboard.css" />
 </head>
 <body>
   
@@ -20,33 +17,18 @@
   <div class="nav">
     <a href="index.html" class="title-link">
       <img src="../Foto/SkillRader_Logo.png" alt="Logo" class="logo">
-      <h1>The SkillRader</h1>
+      <h1>The SkillRadar</h1>
     </a>
+    <button class="btn logout">Uitloggen</button>
   </div>
 
-  <!-- Ronde header -->
+  <!-- Header -->
   <header class="header-round">
     <div class="welcome">
       <h2>Welkom, <span id="username">Gebruiker</span></h2>
       <p>Hier is je overzicht van de skillradar</p>
     </div>
   </header>
-
-  <!-- Custom Dark/Light Mode Switch -->
-  <label class="switch" for="switch">
-    <input type="checkbox" id="switch" />
-    <div class="sunmoon">
-      <div class="darkside"></div>
-    </div>
-    <div class="border"></div>
-    <div class="clouds">
-      <img src="/Foto/cloud_1.svg" alt="" class="cloud cloud-1" />
-      <img src="/Foto/cloud_2.svg" alt="" class="cloud cloud-2" />
-      <img src="/Foto/cloud_3.svg" alt="" class="cloud cloud-3" />
-      <img src="/Foto/cloud_4.svg" alt="" class="cloud cloud-4" />
-      <img src="/Foto/stars.svg" alt="" class="stars" />
-    </div>
-  </label>
 
   <!-- Dashboard cards -->
   <main class="dashboard">
@@ -69,17 +51,21 @@
     </div>
   </main>
 
+  <!-- Radar sectie -->
+  <section class="radar-container">
+    <h3>Hier kan je je radar rozen zien</h3>
+    <div class="radar-box"></div>
+  </section>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <button class="btn">Roos aanmaken</button>
+  </aside>
+
   <!-- Scripts -->
   <script>
-    const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
-    const body = document.body;
-
-    toggleSwitch.addEventListener("change", (e) => {
-      body.classList.toggle("dark");
-    });
-
     // Dynamische naam
-    document.getElementById("username").textContent = "Johan"; 
+    document.getElementById("username").textContent = "Sem"; 
   </script>
 </body>
 </html>
