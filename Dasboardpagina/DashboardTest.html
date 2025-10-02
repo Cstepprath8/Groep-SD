@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The SkillRadar Dashboard</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Archivo+Black&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../CSS/dashboard.css" />
+</head>
+
+<body>
+
+    <!-- Navigatie + logo -->
+    <div class="nav">
+        <a href="index.html" class="title-link">
+            <img src="../Foto/SkillRader_Logo.png" alt="Logo" class="logo">
+            <h1>The SkillRadar</h1>
+        </a>
+
+
+        <div class="profile-menu">
+            <button class="profile-btn" id="profileBtn" aria-expanded="false">
+                <img id="avatar" src="../Foto/leegprofielfoto.png" alt="Profiel">
+            </button>
+
+            <!-- Dropdown menu -->
+            <div class="dropdown" id="dropdownMenu">
+                <button id="uploadBtn">Profielfoto kiezen</button>
+                <button>Instellingen</button>
+                <button id="themeToggle">Light/Dark mode</button>
+                <button>Meer opties...</button>
+            </div>
+
+            <!-- Verborgen file input -->
+            <input type="file" id="avatarInput" accept="image/*" hidden>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header-round">
+        <div class="welcome">
+            <h2>Welkom, <span id="username">Gebruiker</span></h2>
+            <p>Hier is je overzicht van de skillradar</p>
+        </div>
+    </header>
+
+
+
+    <!-- Scripts -->
+    <script>
+        // Dynamische naam
+        document.getElementById("username").textContent = "Sem";
+
+        const profileBtn = document.getElementById('profileBtn');
+        const dropdown = document.getElementById('dropdownMenu');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const avatarInput = document.getElementById('avatarInput');
+        const avatarImg = document.getElementById('avatar');
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Toggle dropdown
+        profileBtn.addEventListener('click', () => {
+            dropdown.classList.toggle('show');
+        });
+
+        // Klik buiten dropdown = sluiten
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.profile-menu')) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Upload profielfoto
+        uploadBtn.addEventListener('click', () => {
+            avatarInput.click();
+        });
+
+        avatarInput.addEventListener('change', () => {
+            const file = avatarInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    avatarImg.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Dark / Light toggle
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+        });
+
+
+
+    </script>
+</body>
+
+</html>
