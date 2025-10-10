@@ -40,16 +40,17 @@
   <!-- Voeg meer driehoeken toe -->
   </div>
 
-  <!-- Afbeelding in het midden -->
-  <img src="../Foto/SkillRader_Logo.png" alt="Green Ink Cloud" class="center-image">
+  <div class="hero">
+    <!-- Afbeelding in het midden --> 
+    <img src="../Foto/SkillRader_Logo.png" alt="Green Ink Cloud" class="center-image">
 
-  <!-- Content links -->
-  <div class="content">
-    <p>Welkom Bij</p>
-    <h2>The <br> Skillradar</h2>
-    <button id="infoBtn">Informatie</button>
+    <!-- Content links -->
+    <div class="content">
+      <p>Welkom Bij</p>
+      <h2>The <br> Skillradar</h2>
+      <button id="infoBtn">Informatie</button>
+    </div>
   </div>
-
   <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" id="closeBtn">&times;</a>
     <h2>Informatie:</h2>
@@ -81,15 +82,13 @@
     const sidebar = document.getElementById("sidebar");
     const closeBtn = document.getElementById("closeBtn");
 
-    // Openen
-    infoBtn.addEventListener("click", () => {
-      sidebar.style.width = "450px";
-    });
+infoBtn.addEventListener("click", () => {
+    sidebar.classList.add("open");   // voeg class toe
+});
 
-    // Sluiten
-    closeBtn.addEventListener("click", () => {
-      sidebar.style.width = "0";
-    });
+closeBtn.addEventListener("click", () => {
+    sidebar.classList.remove("open"); // verwijder class
+});
 
 
 

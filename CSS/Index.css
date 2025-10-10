@@ -58,6 +58,10 @@
       color: #f00;
     }
 
+    .sidebar.open {
+      width: 400px;
+      max-width: 80%;
+    }
 
     .overlay {
       position: absolute;
@@ -97,6 +101,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      margin-top: 16.2%;
       /* links */
       padding-left: 80px;
       color: white;
@@ -143,4 +148,119 @@
       z-index: 1;
       opacity: 0.9;
     }
-    
+
+    @media (max-width: 600px) {
+
+      .hero {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 40px 20px;
+      }
+
+      .center-image {
+        max-width: 700px;
+        width: 100%;
+        height: auto;
+        display: block;
+        opacity: 0.9;
+        margin-top: -45%;
+        margin-left: 1.8%;
+      }
+
+      .content {
+        display: block;
+        max-width: 600px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 85%;
+        margin-left: -15%;
+      }
+
+
+      .socials {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .footer-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 20px 0;
+      }
+
+      .footer-image img {
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+      }
+
+      #infoBtn {
+        display: block;
+        margin: 20px auto 0;
+
+      }
+
+      .title-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        white-space: nowrap;
+        margin-left: -10px;
+
+
+      }
+
+      .nav {
+        position: relative !important;
+        left: -20px !important;
+        z-index: 11;
+        gap: 25px;
+
+      }
+
+      .sidebar.open {
+        width: 95%;
+      }
+
+      .sidebar h2,
+      .sidebar p,
+      .sidebar li {
+        padding: 10px 40px;
+      }
+
+      .sidebar .closebtn {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 40px;
+        text-decoration: none;
+        color: white;
+      }
+
+      .sidebar .closebtn:hover {
+        color: #f00;
+      }
+    }
+
+
+
+
+    @media (min-width: 600px) and (max-width: 1024px) {}
+
+
+
+    @media (min-width: 1024px) and (max-width: 1440px) {}
+
+
+
+    @media (min-width: 1440px) {}
