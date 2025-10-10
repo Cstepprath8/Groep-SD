@@ -3,7 +3,7 @@
 
 $servername = "localhost";  // Je servernaam (meestal localhost)
 $username = "root";         // Je MySQL gebruikersnaam
-$password = "Wachtwoord";   // Je MySQL wachtwoord
+$password = "";   // Je MySQL wachtwoord
 $dbname = "skillrader";       // Je database naam
 
 // Maak verbinding met de database
