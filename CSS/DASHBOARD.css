@@ -148,7 +148,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-  position: fixed;
+  position: absolute;
   right: 20px;
   top: 200px;
   display: flex;

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Labels</title>
+  <link rel="stylesheet" href="../CSS/roos.css">
+  <style>
+    .controls label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .controls input {
+      margin-left: 0.5rem;
+      flex: 1;
+    }
+    .controls button {
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Labels aanpassen</h1>
+
+  <div class="controls" id="labelsContainer">
+    <!-- De labels komen hier dynamisch -->
+  </div>
+
+  <button onclick="addLabel()">+ Label</button>
+  <button onclick="removeLabel()">- Label</button>
+  <button onclick="nextStep()">Volgende</button>
+
+  <script>
+    const labelsContainer = document.getElementById('labelsContainer');
+
+    // Start met 4 standaardlabels
+    let labelCount = 4;
+    const defaultLabels = ['Slecht', 'Neutraal', 'Goed', 'Zeer goed'];
+
+    function renderLabels() {
+      labelsContainer.innerHTML = '';
+      for (let i = 0; i < labelCount; i++) {
+        const label = document.createElement('label');
+        label.innerHTML = `<span>Label ${i + 1}</span>
+          <input type="text" id="label${i + 1}" value="${defaultLabels[i] || ''}">`;
+        labelsContainer.appendChild(label);
+      }
+    }
+
+    function addLabel() {
+      labelCount++;
+      defaultLabels.push(''); // lege waarde voor nieuwe label
+      renderLabels();
+    }
+
+    function removeLabel() {
+      if (labelCount > 1) { // minstens 1 label behouden
+        labelCount--;
+        defaultLabels.pop();
+        renderLabels();
+      }
+    }
+
+    function nextStep() {
+      const labels = [];
+      for (let i = 0; i < labelCount; i++) {
+        const val = document.getElementById(`label${i + 1}`).value || `Label ${i + 1}`;
+        labels.push(val);
+      }
+      sessionStorage.setItem('labels', JSON.stringify(labels));
+      window.location.href = '../Rader/Roos.html';
+    }
+
+    // Initial render
+    renderLabels();
+  </script>
+</body>
+</html>

@@ -23,7 +23,7 @@ h1 {
   justify-content: center;
   gap: 1rem;
   margin: 1.5rem auto;
-  max-width: 800px;
+  max-width: 900px; /* Grotere container zodat canvas meer ruimte krijgt */
 }
 
 .controls label {
@@ -48,7 +48,7 @@ h1 {
   outline: none;
 }
 
-/* Update-knop */
+/* Buttons */
 button {
   background-color: #4e73df;
   color: #fff;
@@ -70,7 +70,9 @@ button:hover {
 #roosChart {
   display: block;
   margin: 0 auto;
-  max-width: 350px;  /* Zorgt dat hij klein blijft */
+  width: 100%;        /* Canvas vult nu de breedte van de container */
+  max-width: 600px;   /* Max grootte van de radar */
+  height: auto;       /* Hoogte past zich automatisch aan */
   background: #fff;
   border-radius: 16px;
   padding: 1rem;

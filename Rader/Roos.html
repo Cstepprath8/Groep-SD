@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Radar Roos</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/CSS/roos.css">
 </head>
 <body>
   <h1>Radar Roosdiagram</h1>
@@ -46,3 +47,23 @@
   </script>
 </body>
 </html>
+
+<button id="saveData">Opslaan in database</button>
+
+<script>
+document.getElementById('saveData').addEventListener('click', function() {
+  // Haal de data op
+  const labels = JSON.parse(sessionStorage.getItem('labels')) || ['Slecht', 'Neutraal', 'Goed', 'Zeer goed'];
+  const values = JSON.parse(sessionStorage.getItem('values')) || [2, 5, 7, 9];
+
+  // Verstuur via POST naar PHP
+  fetch('opslaan.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `labels[]=${labels.join('&labels[]=')}&values[]=${values.join('&values[]=')}`
+  })
+  .then(response => response.text())
+  .then(data => alert(data))
+  .catch(error => alert('Fout bij opslaan: ' + error));
+});
+</script>
