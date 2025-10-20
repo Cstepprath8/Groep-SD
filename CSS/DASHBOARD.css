@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #6366f1;
+  background: rgb(57, 153, 54);
   color: white;
   padding: 0.8rem 2rem;
   border-bottom-left-radius: 20px;
@@ -43,7 +43,7 @@ body {
 
 /* Buttons */
 .btn {
-  background: #4f46e5;
+  background: #399936;
   color: white;
   border: none;
   padding: 0.7rem 1.5rem;
@@ -56,15 +56,15 @@ body {
 }
 
 .btn:hover {
-  background: #3730a3;
+  background: rgb(42, 108, 39);
 }
 
 .logout {
-  background: #ef4444;
+  background: #f01616;
 }
 
 .logout:hover {
-  background: #b91c1c;
+  background: #8b1111;
 }
 
 /* Header */
@@ -118,7 +118,7 @@ body {
 }
 
 .fill {
-  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  background: linear-gradient(90deg, #399936, #50d34c);
   height: 100%;
   border-radius: 10px;
   transition: width 0.5s ease;
