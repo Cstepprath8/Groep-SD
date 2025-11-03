@@ -1,13 +1,28 @@
 <!DOCTYPE html>
+<!-- V0.07 -->
 <html lang="nl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Radar Roos</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="/CSS/roos.css">
+  <link rel="stylesheet" href="../CSS/roos.css">
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Horizon&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Archivo+Black&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
+
+  <div class="nav">
+    <a href="../Dasboardpagina/DASHBOARD.html" class="title-link">
+      <img src="../Foto/SkillRader_Logo.png" alt="Logo" class="logo">
+      <h1>The SkillRadar</h1>
+    </a>
+    <button class="btn logout">Uitloggen</button>
+  </div>
+
   <h1>Radar Roosdiagram</h1>
   <canvas id="roosChart"></canvas>
 
@@ -45,25 +60,31 @@
       }
     });
   </script>
+
+  <button id="saveData" onclick="saveRadar()">Opslaan</button>
+
+  <a href="../Dasboardpagina/Dashboard.php" class="btn">Terug</a>
+
+  <script>
+    function saveRadar() {
+      const labels = JSON.parse(sessionStorage.getItem('labels')) || [];
+      const values = JSON.parse(sessionStorage.getItem('values')) || [];
+      const radarNaam = prompt("Geef een naam aan deze radar:", "Mijn Radar");
+
+      fetch('../rader/opslaan/php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `radarNaam=${encodeURIComponent(radarNaam)}&labels[]=${labels.join('&labels[]=')}&values[]=${values.join('&values[]=')}`
+      })
+        .then(res => res.text())
+        .then(data => alert(data))
+        .catch(err => console.error('Fout bij opslaan:', err));
+    }
+
+  </script>
+
+
+
 </body>
+
 </html>
-
-<button id="saveData">Opslaan in database</button>
-
-<script>
-document.getElementById('saveData').addEventListener('click', function() {
-  // Haal de data op
-  const labels = JSON.parse(sessionStorage.getItem('labels')) || ['Slecht', 'Neutraal', 'Goed', 'Zeer goed'];
-  const values = JSON.parse(sessionStorage.getItem('values')) || [2, 5, 7, 9];
-
-  // Verstuur via POST naar PHP
-  fetch('opslaan.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `labels[]=${labels.join('&labels[]=')}&values[]=${values.join('&values[]=')}`
-  })
-  .then(response => response.text())
-  .then(data => alert(data))
-  .catch(error => alert('Fout bij opslaan: ' + error));
-});
-</script>

@@ -1,38 +1,71 @@
 <!DOCTYPE html>
+<!-- V0.05 -->
 <html lang="nl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Waarden</title>
   <link rel="stylesheet" href="../CSS/roos.css">
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Horizon&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Archivo+Black&display=swap" rel="stylesheet">
 </head>
-<body>
-  <h1>Waarden aanpassen</h1>
 
-  <div class="controls">
-    <label><span>Waarde 1</span><input type="number" id="val1" min="1" max="10" value="2"></label>
-    <label><span>Waarde 2</span><input type="number" id="val2" min="1" max="10" value="5"></label>
-    <label><span>Waarde 3</span><input type="number" id="val3" min="1" max="10" value="7"></label>
-    <label><span>Waarde 4</span><input type="number" id="val4" min="1" max="10" value="9"></label>
+<body>
+
+  <div class="nav">
+    <a href="../Dasboardpagina/DASHBOARD.html" class="title-link">
+      <img src="../Foto/SkillRader_Logo.png" alt="Logo" class="logo">
+      <h1>The SkillRadar</h1>
+    </a>
+    <button class="btn logout">Uitloggen</button>
   </div>
 
+  <h1>Waarden aanpassen</h1>
+
+  <div class="controls" id="valuesContainer">
+    <!-- Dynamisch gegenereerde invoervelden komen hier -->
+  </div>
+<div class="button-container">
   <button onclick="nextStep()">Volgende</button>
+</div>
 
   <script>
+    const valuesContainer = document.getElementById('valuesContainer');
+    const labels = JSON.parse(sessionStorage.getItem('labels')) || [];
+
+    function renderValueInputs() {
+      valuesContainer.innerHTML = '';
+
+      // Als er geen labels zijn, standaard 4
+      const count = labels.length || 4;
+
+      for (let i = 0; i < count; i++) {
+        const labelText = labels[i] || `Label ${i + 1}`;
+
+        const label = document.createElement('label');
+        label.innerHTML = `
+          <span>${labelText}</span>
+          <input type="number" id="val${i + 1}" min="1" max="10" value=" ">
+        `;
+        valuesContainer.appendChild(label);
+      }
+    }
+
     function nextStep() {
-      const values = [
-        Math.min(10, Math.max(1, parseFloat(document.getElementById('val1').value))),
-        Math.min(10, Math.max(1, parseFloat(document.getElementById('val2').value))),
-        Math.min(10, Math.max(1, parseFloat(document.getElementById('val3').value))),
-        Math.min(10, Math.max(1, parseFloat(document.getElementById('val4').value)))
-      ];
+      const values = [];
+      const count = labels.length || 4;
 
-      // Sla de waarden op
+      for (let i = 0; i < count; i++) {
+        const val = Math.min(10, Math.max(1, parseFloat(document.getElementById(`val${i + 1}`).value)));
+        values.push(val);
+      }
+
       sessionStorage.setItem('values', JSON.stringify(values));
-
-      // Ga naar de pagina met de complete radarroos
       window.location.href = '../Rader/Roos.html';
     }
+
+    renderValueInputs();
   </script>
 </body>
 </html>

@@ -1,23 +1,30 @@
 <?php
-// Verbinden met de database
-$conn = new mysqli("localhost", "root", "", "radar_roos_db");
+// <!-- V0.01 -->
+include(__DIR__ . '/../DataBase/db_connect.php');
 
 if ($conn->connect_error) {
   die("Verbinding mislukt: " . $conn->connect_error);
 }
 
-// Data ontvangen via POST
 $labels = $_POST['labels'] ?? [];
 $values = $_POST['values'] ?? [];
+$radarNaam = $_POST['radarNaam'] ?? 'Nieuwe Radar';
 
-// Controleren of er data is
+
+$radar_id = time();
+
 if (!empty($labels) && !empty($values)) {
   for ($i = 0; $i < count($labels); $i++) {
     $label = $conn->real_escape_string($labels[$i]);
     $value = (int)$values[$i];
-    $conn->query("INSERT INTO radar_data (label, value) VALUES ('$label', $value)");
+
+    $conn->query("
+      INSERT INTO radar_data (radar_id, radar_naam, label, value)
+      VALUES ($radar_id, '$radarNaam', '$label', $value)
+    ");
   }
-  echo "✅ Data succesvol opgeslagen in de database!";
+
+  echo "✅ Radar '$radarNaam' succesvol opgeslagen!";
 } else {
   echo "⚠️ Geen data ontvangen.";
 }

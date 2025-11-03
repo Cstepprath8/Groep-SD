@@ -1,39 +1,85 @@
 <!DOCTYPE html>
+<!-- V0.05 -->
 <html lang="nl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Labels</title>
   <link rel="stylesheet" href="../CSS/roos.css">
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Horizon&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Archivo+Black&display=swap"
+    rel="stylesheet">
 </head>
-<body>
-  <h1>Labels aanpassen</h1>
 
-  <div class="controls">
-    <label><span>Label 1</span><input type="text" id="label1" value="Slecht"></label>
-    <label><span>Label 2</span><input type="text" id="label2" value="Neutraal"></label>
-    <label><span>Label 3</span><input type="text" id="label3" value="Goed"></label>
-    <label><span>Label 4</span><input type="text" id="label4" value="Zeer goed"></label>
+<body>
+
+ <div class="nav">
+    <a href="../Dasboardpagina/DASHBOARD.html" class="title-link">
+      <img src="../Foto/SkillRader_Logo.png" alt="Logo" class="logo">
+      <h1>The SkillRadar</h1>
+    </a>
+    <!-- <a href="../Dasboardpagina/DASHBOARD.html" class="Btn_Terug_Nav">Terug</a> -->
+    <button class="btn logout">Uitloggen</button>
   </div>
 
+  <h1>Labels aanpassen</h1>
+
+  <div class="controls" id="labelsContainer">
+    <!-- De labels komen hier dynamisch -->
+  </div>
+<div class="button-container">
+  <button onclick="addLabel()">+ Label</button>
+  <button onclick="removeLabel()">- Label</button>
   <button onclick="nextStep()">Volgende</button>
+</div>
 
   <script>
-    function nextStep() {
-      // Haal de waarden op van de inputvelden
-      const labels = [
-        document.getElementById('label1').value || 'Label 1',
-        document.getElementById('label2').value || 'Label 2',
-        document.getElementById('label3').value || 'Label 3',
-        document.getElementById('label4').value || 'Label 4'
-      ];
-      
-      // Sla de labels op in sessionStorage zodat andere pagina's ze kunnen gebruiken
-      sessionStorage.setItem('labels', JSON.stringify(labels));
+    const labelsContainer = document.getElementById('labelsContainer');
 
-      // Ga naar de pagina om waarden in te vullen
+    // Start met 4 standaardlabels
+    let labelCount = 4;
+    const defaultLabels = [' ', ' ', ' ', ' '];
+
+    function renderLabels() {
+      labelsContainer.innerHTML = '';
+      for (let i = 0; i < labelCount; i++) {
+        const label = document.createElement('label');
+        label.innerHTML = `<span>Label ${i + 1}</span>
+          <input type="text" id="label${i + 1}" value="${defaultLabels[i] || ''}">`;
+        labelsContainer.appendChild(label);
+      }
+    }
+
+    function addLabel() {
+      labelCount++;
+      defaultLabels.push(''); // lege waarde voor nieuwe label
+      renderLabels();
+    }
+
+    function removeLabel() {
+      if (labelCount > 1) { // minstens 1 label behouden
+        labelCount--;
+        defaultLabels.pop();
+        renderLabels();
+      }
+    }
+
+    function nextStep() {
+      const labels = [];
+      for (let i = 0; i < labelCount; i++) {
+        const val = document.getElementById(`label${i + 1}`).value || `Label ${i + 1}`;
+
+        labels.push(val);
+      }
+      sessionStorage.setItem('labels', JSON.stringify(labels));
       window.location.href = '../Rader/Rooswaardes.html';
     }
+
+    // Initial render
+    renderLabels();
   </script>
 </body>
+
+
 </html>
